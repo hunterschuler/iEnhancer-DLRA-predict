@@ -52,8 +52,8 @@ input_help = "[REQUIRED] Path to the input file. File must be in .FASTA format."
 model_help = "[REQUIRED] Select whether you want the script to execute the classifier model (\"c\") or the identifier model (\"i\")"
 step_help = "[OPTIONAL] Dictates the step size for windowing input sequences longer than 200 bases. E.g., 200 would have 0% overlap, 100 would have 50% overlap, 1 would have 99.5% overlap. Acceptable range: 1-200."
 output_help = "[OPTIONAL] Set the name and destination for the output file. Default is \"/output_<date-time>.txt\""
-class_model_help = "[OPTIONAL] Path to the classifier model (TensorFlow). This will default to the classifier model that is colocated with the script in \"/classifier_model\" but optionally, you can input a path to a different TensorFlow model."
-ident_model_help = "[OPTIONAL] Path to the identifier model (TensorFlow). This will default to the identifier model that is colocated with the script in \"/identifier_model\" but optionally, you can input a path to a different TensorFlow model."
+class_model_help = "[OPTIONAL] Path to the classifier model (TensorFlow). This will default to the classifier model that is colocated with the script in \"/classifier_model_trained\" but optionally, you can input a path to a different TensorFlow model."
+ident_model_help = "[OPTIONAL] Path to the identifier model (TensorFlow). This will default to the identifier model that is colocated with the script in \"/identifier_model_trained\" but optionally, you can input a path to a different TensorFlow model."
 
 # Create input arguments
 parser = argparse.ArgumentParser(description='Numeric argument validation script')
