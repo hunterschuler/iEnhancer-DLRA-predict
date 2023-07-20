@@ -140,7 +140,7 @@ def slice_sequence(handed_sequence):
     sequence_slices = []
     for i in range(full_steps):
         begin = i * input_step
-        end = begin + input_step
+        end = begin + 200
         sequence_slices.append(str(handed_sequence.seq[begin:end]))
     if len(handed_sequence.seq) % input_step != 0:
         sequence_slices.append(str(handed_sequence.seq[(end-input_step):end]))
