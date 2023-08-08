@@ -20,7 +20,7 @@ The script accepts the following arguments:
 | --input        |   [REQUIRED]     | Path to the input file. File must be in FASTA format.                                                                  |
 | --model        |   [REQUIRED]     | Select whether you want the script to execute the classifier model ("c") or the identifier model ("i")                 |
 | --step         |   [OPTIONAL]     | Dictates the step size for windowing input sequences longer than 200 bases. Acceptable range: 1-200.**                 |
-| --output       |   [OPTIONAL]     | Set the name and destination for the output file. Default is "output_<date-time>.txt"                                  |
+| --output       |   [OPTIONAL]     | Set the name and destination for the output file. Default is "output/output_\<date-time\>.txt"                                  |
 | --class_model  |   [OPTIONAL]     | Path to the classifier model (TensorFlow). This will default to the classifier model that is colocated with the script in "/classifier_model_trained" but optionally, you can input a path to a different TensorFlow model.|
 | --ident_model  |   [OPTIONAL]     | Path to the identifier model (TensorFlow). This will default to the identifier model that is colocated with the script in "/identifier_model_trained" but optionally, you can input a path to a different TensorFlow model.|
 
