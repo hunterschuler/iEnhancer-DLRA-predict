@@ -4,6 +4,7 @@
 #   Southern Methodist University
 #   UT Southwestern Medical Center - Lin Xu Lab
 #   06JULY2023
+#   (Last updated: 08AUG2023)
 #
 #   Based on code from the iEnhancer-DLRA tool:
 #       L. Zeng, et al., 2022 (https://github.com/lftxd1/iEnhancer-DLRA)
@@ -61,7 +62,7 @@ parser = argparse.ArgumentParser(description='Numeric argument validation script
 parser.add_argument('--input', type=is_fasta, help=input_help)
 parser.add_argument('--model', help=model_help)
 parser.add_argument('--step', type=validate_positive_integer, default=200, help=step_help)
-parser.add_argument('--output', default=str('output_' + UTC_now + '.txt'), help=output_help)
+parser.add_argument('--output', default=str('output/output_' + UTC_now + '.txt'), help=output_help)
 parser.add_argument('--class_model', default='classifier_model_trained', help=class_model_help)
 parser.add_argument('--ident_model', default='identifier_model_trained', help=ident_model_help)
 
@@ -90,8 +91,8 @@ else:
     raise Exception('\nInvalid model selection! Select either the classification model (\"--model c\") or the identification model (\"--model i\").\n')
 
 # Define the dictionary for converting the sequence to numbers
-dic={'A':'A','T':'T','G':'G','C':'C'}
-dic_con={'A':1,'T':2,'G':3,'C':4}
+dic = {'A': 'A', 'T': 'T', 'G': 'G', 'C': 'C', 'a': 'A', 't': 'T', 'g': 'G', 'c': 'C'}
+dic_con = {'A': 1, 'T': 2, 'G': 3, 'C': 4, 'a': 1, 't': 2, 'g': 3, 'c': 4}
 
 # Define the function to generate the required input format for the model
 def GenerateFromTextToNumpy(train):
@@ -143,7 +144,7 @@ def slice_sequence(handed_sequence):
         end = begin + 200
         sequence_slices.append(str(handed_sequence.seq[begin:end]))
     if len(handed_sequence.seq) % input_step != 0:
-        sequence_slices.append(str(handed_sequence.seq[(end-input_step):end]))
+        sequence_slices.append(str(handed_sequence.seq[(end-200):end]))
     return(sequence_slices)
 
 # Define the main function
